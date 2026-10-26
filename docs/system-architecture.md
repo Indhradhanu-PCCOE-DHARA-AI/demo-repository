@@ -1,0 +1,1 @@
+Frontend, backedn and AI/ML connections 
