@@ -1,0 +1,360 @@
+
+/* =====================================
+   DHARA-AI — INFORMATION HUB
+   ===================================== */
+
+.info-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #f7f8f4;
+  color: #183d2a;
+}
+
+/* Header + top-right logo */
+.info-header {
+  min-height: 86px;
+  padding: 18px 6.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e9e0;
+}
+
+.info-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-brand-text span {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.info-brand-text small {
+  color: #718875;
+  font-size: 0.62rem;
+  letter-spacing: 0.19em;
+}
+
+.info-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+/* Main content */
+.info-content {
+  width: min(1120px, 87%);
+  margin: 0 auto;
+  padding: 64px 0 22px;
+}
+
+.info-intro {
+  max-width: 620px;
+  margin-bottom: 42px;
+  animation: info-enter 0.7s ease both;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #718875;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.info-intro h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-weight: 750;
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+}
+
+.info-intro h1 span {
+  color: #78917a;
+}
+
+.info-intro > p {
+  max-width: 440px;
+  margin-top: 18px;
+  color: #718075;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Three category cards */
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.info-card {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  min-height: 300px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+
+  padding: 25px 23px;
+  border: 1px solid #e2e8dd;
+  border-radius: 18px;
+  background: #fffefa;
+  color: #183d2a;
+
+  cursor: pointer;
+  font: inherit;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+
+  animation: info-enter 0.65s ease both;
+}
+
+.info-card:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.info-card:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+.info-card:hover {
+  transform: translateY(-7px);
+  border-color: #9eb59d;
+  box-shadow: 0 16px 36px rgb(24 61 42 / 8%);
+  background: #fbfcf7;
+}
+
+.info-card:focus-visible {
+  outline: 3px solid #78917a;
+  outline-offset: 4px;
+}
+
+.card-top {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.card-number {
+  color: #8b9c89;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+}
+
+.card-icon {
+  width: 55px;
+  height: 55px;
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  background: #edf2e8;
+  color: #315b3b;
+
+  font-size: 1.9rem;
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover .card-icon {
+  transform: rotate(-8deg) scale(1.07);
+}
+
+.card-tag {
+  margin-bottom: 10px;
+  color: #839380;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.info-card h2 {
+  margin: 0 0 12px;
+  font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+  font-weight: 750;
+  letter-spacing: -0.035em;
+}
+
+.info-card > p {
+  max-width: 270px;
+  margin: 0 0 25px;
+  color: #778278;
+  font-size: 0.87rem;
+  line-height: 1.75;
+}
+
+.card-action {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  color: #315b3b;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.card-action span {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.info-card:hover .card-action span {
+  transform: translate(3px, -3px);
+}
+
+/* Abstract botanical decoration */
+.card-decoration {
+  position: absolute;
+  z-index: -1;
+  right: -8px;
+  bottom: 24px;
+
+  color: #e8eee2;
+  font-size: 6.5rem;
+  line-height: 1;
+  pointer-events: none;
+  transform: rotate(-15deg);
+  transition: transform 0.4s ease;
+}
+
+.info-card:hover .card-decoration {
+  transform: rotate(0deg) scale(1.12);
+}
+
+.info-card-field .card-decoration {
+  color: #e6eddf;
+}
+
+.info-card-location .card-decoration {
+  color: #e8ece1;
+}
+
+/* Footer */
+.info-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 55px;
+  padding: 20px 0;
+  border-top: 1px solid #e2e8dd;
+
+  color: #8a9788;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+}
+
+/* Entrance animation */
+@keyframes info-enter {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tablet */
+@media (max-width: 850px) {
+  .info-content {
+    padding-top: 48px;
+  }
+
+  .info-cards {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .info-card {
+    min-height: 245px;
+  }
+
+  .card-top {
+    margin-bottom: 18px;
+  }
+
+  .info-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .info-card > p {
+    max-width: 420px;
+  }
+
+  .card-decoration {
+    right: 10px;
+    bottom: 30px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .info-header {
+    min-height: 72px;
+    padding: 14px 6%;
+  }
+
+  .info-logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .info-content {
+    width: 88%;
+    padding-top: 40px;
+  }
+
+  .info-intro {
+    margin-bottom: 30px;
+  }
+
+  .info-intro h1 {
+    font-size: 2.65rem;
+  }
+
+  .info-intro > p {
+    font-size: 0.92rem;
+  }
+
+  .info-card {
+    padding: 22px;
+    min-height: 250px;
+  }
+
+  .info-footer {
+    flex-direction: column;
+    margin-top: 35px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .info-intro,
+  .info-card {
+    animation: none;
+  }
+
+  .info-card,
+  .card-icon,
+  .card-decoration,
+  .card-action span {
+    transition: none;
+  }
+}
