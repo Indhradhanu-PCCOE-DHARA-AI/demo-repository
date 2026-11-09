@@ -1,1 +1,7 @@
 Ignore generated files and secrets
+# Dependencies and generated files
+**/node_modules/
+**/venv*/
+**/.venv/
+**/__pycache__/
+*.py[cod]
