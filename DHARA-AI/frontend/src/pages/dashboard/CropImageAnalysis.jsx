@@ -3,9 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../../context/LanguageContext";
 import "./CropImageAnalysis.css";
 
-const AI_API_URL = "http://127.0.0.1:8000/predict";
+const AI_API_URL = "https://dance-rudder-sandstone.ngrok-free.dev/predict";
 
-// Keep these values unchanged because they are used internally.
 const plantParts = [
   "Leaf",
   "Stem",
@@ -355,6 +354,9 @@ function CropImageAnalysis({
 
       const response = await fetch(AI_API_URL, {
         method: "POST",
+        headers: {
+          "ngrok-skip-browser-warning": "true",
+        },
         body: formData,
       });
 
@@ -362,13 +364,12 @@ function CropImageAnalysis({
 
       if (!response.ok || !data.success) {
         throw new Error(
-          data.message || t("analysisError")
+          data.detail || data.message || t("analysisError")
         );
       }
 
       setPrediction(data);
 
-      // Share the successful AI prediction with Dashboard.
       onPrediction?.({
         ...data,
         fieldId: selectedFieldId,
@@ -388,8 +389,9 @@ function CropImageAnalysis({
     }
   };
 
+  // API already returns confidence as a percentage.
   const confidencePercentage = prediction
-    ? (Number(prediction.confidence) * 100).toFixed(2)
+    ? Number(prediction.confidence).toFixed(2)
     : "0.00";
 
   const isCropMismatch =
@@ -736,7 +738,7 @@ function CropImageAnalysis({
                         <div>
                           <span>{item.label}</span>
                           <strong>
-                            {(Number(item.confidence) * 100).toFixed(2)}%
+                            {Number(item.confidence).toFixed(2)}%
                           </strong>
                         </div>
 
@@ -746,10 +748,7 @@ function CropImageAnalysis({
                             style={{
                               width: `${Math.min(
                                 100,
-                                Math.max(
-                                  0,
-                                  Number(item.confidence) * 100
-                                )
+                                Math.max(0, Number(item.confidence))
                               )}%`,
                             }}
                           />

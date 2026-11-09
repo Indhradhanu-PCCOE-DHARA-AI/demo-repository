@@ -7,6 +7,8 @@ import SatelliteFieldHealth from "./dashboard/SatelliteFieldHealth";
 import CropImageAnalysis from "./dashboard/CropImageAnalysis";
 import AIDiagnosis from "./dashboard/AIDiagnosis";
 import { useLanguage } from "../context/LanguageContext";
+import AnalyticsRecommendations from "./dashboard/AnalyticsRecommendations";
+import TemporalAnalysis from "./dashboard/TemporalAnalysis";
 
 const API_BASE_URL = (
   import.meta.env.VITE_API_BASE_URL ||
@@ -250,7 +252,7 @@ function Dashboard({ user, onLogout }) {
         <div className="dashboard-hero-content">
           <span className="dashboard-kicker">{t("heroKicker")}</span>
           <h1>
-            {t("heroTitle")}
+            {t("heroTitle")} 
             <br />
             <em>{t("heroSubtitle")}</em>
           </h1>
@@ -651,20 +653,23 @@ function Dashboard({ user, onLogout }) {
         );
 
       case "Analytics & Recommendations":
-        return renderModulePlaceholder(
-          "Analytics & Recommendations",
-          "INSIGHTS · FARM HISTORY",
-          "Review previous AI recommendations, disease history and weekly or monthly crop-health trends.",
-          <PlantIllustration />
-        );
+  return (
+    <AnalyticsRecommendations
+      farmer={farmer}
+      fields={fields}
+      locations={locations}
+      prediction={cropPrediction}
+    />
+  );
 
       case "Temporal Analysis":
-        return renderModulePlaceholder(
-          "Temporal Analysis",
-          "TIME · VEGETATION CHANGE",
-          "Compare available satellite observations over time to understand how your field's vegetation health is changing.",
-          <SatelliteIllustration />
-        );
+  return (
+    <TemporalAnalysis
+      farmer={farmer}
+      fields={fields}
+      locations={locations}
+    />
+  );
 
       case "Collected Data":
         return renderCollectedData();

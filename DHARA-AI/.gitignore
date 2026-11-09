@@ -8,3 +8,14 @@ dist-ssr/
 .DS_Store
 .vscode/
 .idea/
+
+# Python virtual environments
+**/venv*/
+**/.venv/
+
+# Python generated files
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
