@@ -15,7 +15,7 @@ import "leaflet/dist/leaflet.css";
 
 const API_BASE_URL = (
   import.meta.env.VITE_API_BASE_URL ||
-  "http://localhost:5000/api/auth"
+  "https://dhara-ai-backend-l5lo.onrender.com/api/auth"
 ).replace(/\/auth\/?$/, "");
 
 // Translations for Satellite Field Health.

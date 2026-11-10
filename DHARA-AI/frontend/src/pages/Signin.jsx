@@ -120,7 +120,7 @@ function SignIn({ onAuthenticated }) {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api/auth"}/signin`,
+        `${import.meta.env.VITE_API_BASE_URL || "https://dhara-ai-backend-l5lo.onrender.com/api/auth"}/signin`,
         {
           method: "POST",
           headers: {

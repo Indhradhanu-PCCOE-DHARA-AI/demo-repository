@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../../context/LanguageContext";
 import "./CropImageAnalysis.css";
 
-const AI_API_URL = "https://dance-rudder-sandstone.ngrok-free.dev/predict";
+const AI_API_URL = "https://dhara-ai-inference.onrender.com/predict";
 
 const plantParts = [
   "Leaf",
